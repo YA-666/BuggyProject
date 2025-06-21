@@ -2,14 +2,15 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
+import uvicorn
+
+api = FastAPI(title="Synthetic Soul Assistant")
+
 from .metrics_exporter import router as metrics_router
 api.include_router(metrics_router)
 
-import uvicorn
 from .workspace import app as workspace_app
 from .magic_rect import magic_rect
-
-api=FastAPI(title="Synthetic Soul Assistant")
 
 class ChatRequest(BaseModel):
     text:str

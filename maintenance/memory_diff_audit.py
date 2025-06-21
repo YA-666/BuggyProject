@@ -35,8 +35,12 @@ def main():
         new_items = diff(prev_fp, json.loads(fp.read_text()))
         if new_items:
             from app.metrics_exporter import memory_violations
-        memory_violations.inc(len(new_items))
-        logging.warning("Detected %d untracked memories: %s", len(new_items), new_items[:5])
+            memory_violations.inc(len(new_items))
+            logging.warning(
+                "Detected %d untracked memories: %s",
+                len(new_items),
+                new_items[:5],
+            )
         else:
             logging.info("No untracked memories detected.")
     logging.info("Memory diff audit complete – digest %s", digest)
