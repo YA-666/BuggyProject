@@ -9,6 +9,13 @@ Generated on 2025-06-21T12:45:23
 docker compose up --build
 ```
 
+Create a `.env` file with your OpenAI credentials before running Docker:
+
+```bash
+cp .env.example .env
+echo OPENAI_API_KEY=your-key >> .env
+```
+
 ### Endpoints
 | Path | Function |
 |------|----------|

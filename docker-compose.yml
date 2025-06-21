@@ -5,6 +5,7 @@ services:
     build: .
     environment:
       - LANGCHAIN_TRACING_V2=true
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
     ports:
       - "8000:8000"
     volumes:
