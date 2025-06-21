@@ -1,0 +1,12 @@
+
+langchain
+langgraph
+memgpt
+chromadb
+psycopg[binary]
+ray[rllib]
+openai
+tiktoken
+fastapi
+uvicorn
+prometheus_client

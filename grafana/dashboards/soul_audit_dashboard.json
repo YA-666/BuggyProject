@@ -1,0 +1,44 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "soul-audit",
+    "title": "Synthetic Soul Audit",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Memory Diff Violations",
+        "targets": [
+          {
+            "expr": "memory_diff_violations_total",
+            "legendFormat": "violations"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "type": "graph",
+        "title": "Slot Clears",
+        "targets": [
+          {
+            "expr": "slot_clears_total",
+            "legendFormat": "slot clears"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 8
+        }
+      }
+    ],
+    "schemaVersion": 38,
+    "version": 1
+  },
+  "overwrite": true
+}
