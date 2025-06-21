@@ -1,4 +1,7 @@
 
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 from app.magic_rect import magic_rect
 
 def test_claim_release():
