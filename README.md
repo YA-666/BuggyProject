@@ -61,3 +61,4 @@ Environment variables:
 | `PROM_URL` | `http://prometheus:9090/api/v1/query` | Where to query metrics |
 | `MEM_VIOL_THRESHOLD` | `3` | Violations before rollback |
 | `ROLLBACK_CHECK_INTERVAL` | `60` | Polling interval in seconds |
+| `DOCKER_COMPOSE_PATH` | `/usr/local/bin/docker-compose` | Path to `docker-compose` |

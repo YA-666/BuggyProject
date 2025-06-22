@@ -1,13 +1,14 @@
 
 """Monitors Prometheus metrics and triggers rollback if thresholds exceeded."""
 import time, os, logging, subprocess
-import prometheus_client
-from prometheus_client import CollectorRegistry
 import requests
 
 PROM_ENDPOINT = os.getenv("PROM_URL", "http://prometheus:9090/api/v1/query")
 MEM_VIOL_THRESHOLD = int(os.getenv("MEM_VIOL_THRESHOLD", "3"))
 CHECK_INTERVAL = int(os.getenv("ROLLBACK_CHECK_INTERVAL", "60"))  # seconds
+DOCKER_COMPOSE_PATH = os.getenv(
+    "DOCKER_COMPOSE_PATH", "/usr/local/bin/docker-compose"
+)
 
 def query_metric(metric: str):
     r = requests.get(PROM_ENDPOINT, params={"query": metric})
@@ -20,7 +21,7 @@ def query_metric(metric: str):
 def rollback():
     logging.warning("Triggering automatic rollback …")
     # naive docker‑compose rollback: restart without cache
-    subprocess.run(["/usr/local/bin/docker-compose", "restart", "app"], check=False)
+    subprocess.run([DOCKER_COMPOSE_PATH, "restart", "app"], check=False)
 
 def main():
     logging.basicConfig(level=logging.INFO)
