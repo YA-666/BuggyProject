@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetic Soul Assistant</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #controls { margin-bottom: 10px; }
+        #output { border: 1px solid #ccc; padding: 10px; min-height: 50px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <label for="lang-select">Language:</label>
+        <select id="lang-select">
+            <option value="en">EN</option>
+            <option value="nl">NL</option>
+            <option value="fr">FR</option>
+            <option value="de">DE</option>
+        </select>
+    </div>
+
+    <canvas id="avatar" width="300" height="400"></canvas>
+
+    <div>
+        <input id="user-input" type="text" placeholder="Type here..." size="40" />
+        <button id="send-btn">Send</button>
+    </div>
+    <div id="output"></div>
+
+    <script src="https://unpkg.com/pixi.js@6/dist/browser/pixi.min.js"></script>
+    <script src="https://unpkg.com/pixi-live2d-display/dist/index.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
