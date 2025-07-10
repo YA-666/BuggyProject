@@ -9,6 +9,9 @@ Generated on 2025-06-21T12:45:23
 docker compose up --build
 ```
 
+With the server running, open `static/index.html` in your browser to chat with
+the assistant through the web UI.
+
 Create a `.env` file with your OpenAI credentials before running Docker:
 
 ```bash
@@ -21,6 +24,13 @@ echo OPENAI_API_KEY=your-key >> .env
 |------|----------|
 | `/chat` | Conversational API |
 | `/magic-rect` | Inspect 3×3 slot weight matrix |
+
+### Web UI
+
+The `static/` directory contains a small HTML interface with a Live2D avatar.
+Open `static/index.html` in your browser while the server is running and chat
+directly with the assistant. Use the language selector to switch UI labels
+between Dutch, French and German.
 
 ---
 

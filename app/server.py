@@ -1,10 +1,17 @@
 
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 import uvicorn
 
 api = FastAPI(title="Synthetic Soul Assistant")
+
+# Optionally serve static frontend if the directory exists
+try:
+    api.mount("/", StaticFiles(directory="static", html=True), name="static")
+except Exception:
+    pass
 
 from .metrics_exporter import router as metrics_router
 api.include_router(metrics_router)
